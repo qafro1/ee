@@ -1,0 +1,15 @@
+#The service hello-python is implemented and traffic from the external load balancer is directed at the backend Pods.
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-python #Name of the service
+spec:
+  selector:
+    app: hello-python  
+  ports:
+  - port: 5000
+    targetPort: 5000  #Service port 
+  type: LoadBalancer  #Type Loadbalancer to use
+
+    
+    

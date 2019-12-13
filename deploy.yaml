@@ -1,0 +1,25 @@
+#Deployment to create new ReplicaSets for the hello-python pods
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-python
+spec:
+  replicas: 2 #Number of replica pods
+  selector:
+    matchLabels:
+      app: hello-python
+  template:
+    metadata:
+      labels:
+        app: hello-python
+    spec:
+      containers:
+      - name: hello-python
+        image: qafro/hello-python:latest #image of hello python
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000   #Pod port number 

@@ -1,0 +1,2 @@
+# List of the dependencies that the application needs to run
+flask
